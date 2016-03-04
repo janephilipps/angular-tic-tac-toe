@@ -10,6 +10,10 @@ app.controller('BoardCtrl', ['$scope', function($scope) {
                 ['O','O','X']]
     };
 
+    $scope.playerMove = function($index) {
+        console.log($index);
+    }
+
 }]);
 
 app.directive('appBoard', function() {
