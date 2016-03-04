@@ -1,11 +1,6 @@
 <div class="board">
-    <div class="square"></div>
-    <div class="square"></div>
-    <div class="square"></div>
-    <div class="square"></div>
-    <div class="square"></div>
-    <div class="square"></div>
-    <div class="square"></div>
-    <div class="square"></div>
-    <div class="square"></div>
+    {{test}}
+    <div ng-repeat="row in board.board" class="row">
+        <div ng-repeat="square in row track by $index" class="square"></div>
+    </div>
 </div>

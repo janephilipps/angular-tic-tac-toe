@@ -10,50 +10,50 @@
     float: left;
 }
 
-.square:nth-child(1) {
+.row:nth-child(1) .square:nth-child(1) {
     border-right: 5px solid black;
     border-bottom: 5px solid black;
 }
 
-.square:nth-child(2) {
+.row:nth-child(1) .square:nth-child(2) {
     border-left: 5px solid black;
     border-right: 5px solid black;
     border-bottom: 5px solid black;
 }
 
-.square:nth-child(3) {
+.row:nth-child(1) .square:nth-child(3) {
     border-left: 5px solid black;
     border-bottom: 5px solid black;
 }
 
-.square:nth-child(4) {
+.row:nth-child(2) .square:nth-child(1) {
     border-top: 5px solid black;
     border-right: 5px solid black;
     border-bottom: 5px solid black;
 }
 
-.square:nth-child(5) {
+.row:nth-child(2) .square:nth-child(2) {
     border: 5px solid black;
 }
 
-.square:nth-child(6) {
+.row:nth-child(2) .square:nth-child(3) {
     border-top: 5px solid black;
     border-left: 5px solid black;
     border-bottom: 5px solid black;
 }
 
-.square:nth-child(7) {
+.row:nth-child(3) .square:nth-child(1) {
     border-top: 5px solid black;
     border-right: 5px solid black;
 }
 
-.square:nth-child(8) {
+.row:nth-child(3) .square:nth-child(2) {
     border-left: 5px solid black;
     border-top: 5px solid black;
     border-right: 5px solid black;
 }
 
-.square:nth-child(9) {
+.row:nth-child(3) .square:nth-child(3) {
     border-left: 5px solid black;
     border-top: 5px solid black;
 }
