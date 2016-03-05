@@ -1,11 +1,18 @@
 body {
-    font-family: 'Futura', 'sans-serif';
+    font-family: Futura, sans-serif;
     text-align: center;
 }
 
 .title {
     font-size: 2em;
     padding-bottom: 20px;
+}
+
+.reset {
+    background-color: #fff;
+    border: 2px solid black;
+    font-size: 1.25em;
+    font-family: Futura, sans-serif;
 }
 
 .game-message {
