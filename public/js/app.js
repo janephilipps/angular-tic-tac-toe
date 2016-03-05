@@ -3,15 +3,35 @@ var app = angular.module('ticTacToeApp', []);
 app.controller('BoardCtrl', ['$scope', function($scope) {
 
     $scope.board = {
-        rows: 3,
-        columns: 3,
-        board: [['X','O','X'],
-                ['O','X','O'],
-                ['O','O','X']]
+        size: 3,
+        board: [['','',''],
+                ['','',''],
+                ['','','']]
     };
 
-    $scope.playerMove = function($index) {
-        console.log($index);
+    var turns = 0;
+
+    $scope.gameMessage = 'Let\'s Play! X goes first.'
+
+    $scope.playerMove = function(rowIndex, colIndex) {
+
+        if (turns % 2 == 0) {
+            if (turns == Math.pow($scope.board.size, 2)) {
+                return;
+            }
+            if ($scope.board.board[rowIndex][colIndex] == '') {
+                $scope.board.board[rowIndex][colIndex] = 'X';
+                turns += 1;
+            }
+        } else {
+            if (turns == Math.pow($scope.board.size, 2)) {
+                return;
+            }
+            if ($scope.board.board[rowIndex][colIndex] == '') {
+                $scope.board.board[rowIndex][colIndex] = 'O';
+                turns += 1;
+            }
+        }
     }
 
 }]);

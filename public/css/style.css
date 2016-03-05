@@ -1,3 +1,18 @@
+body {
+    font-family: 'Futura', 'sans-serif';
+    text-align: center;
+}
+
+.title {
+    font-size: 2em;
+    padding-bottom: 20px;
+}
+
+.game-message {
+    font-size: 1.5em;
+    padding: 20px 0 40px;
+}
+
 .board {
     width: 600px;
     height: 600px;
@@ -10,7 +25,6 @@
     float: left;
     text-align: center;
     line-height: 180px;
-    font-family: 'Futura', 'sans-serif';
     font-size: 10em;
 }
 
