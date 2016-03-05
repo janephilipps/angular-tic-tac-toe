@@ -4,10 +4,21 @@ app.controller('BoardCtrl', ['$scope', function($scope) {
 
     $scope.board = {
         size: 3,
-        board: [['','',''],
-                ['','',''],
-                ['','','']]
+        board: []
     };
+
+    $scope.resetBoard = function() {
+        $scope.board.board = [];
+        for (var i = 0; i < $scope.board.size; i++) {
+            var row = [];
+            $scope.board.board.push(row);
+            for (var j = 0; j < $scope.board.size; j++) {
+                row.push('');
+            }
+        }
+    }
+
+    $scope.resetBoard();
 
     var turns = 0;
 
@@ -98,10 +109,6 @@ app.controller('BoardCtrl', ['$scope', function($scope) {
             }
         }
         return $scope.board.board[0][$scope.board.board.length - 1];
-    }
-
-    $scope.resetBoard = function() {
-
     }
 
 }]);
