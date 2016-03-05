@@ -8,6 +8,10 @@ app.controller('BoardCtrl', ['$scope', function($scope) {
     };
 
     $scope.resetBoard = function() {
+        $scope.turns = 0;
+        $scope.winner = '';
+        $scope.draw = false;
+        $scope.gameMessage = 'Let\'s Play! X goes first.';
         $scope.board.board = [];
         for (var i = 0; i < $scope.board.size; i++) {
             var row = [];
@@ -20,24 +24,32 @@ app.controller('BoardCtrl', ['$scope', function($scope) {
 
     $scope.resetBoard();
 
-    var turns = 0;
-
-    $scope.gameMessage = 'Let\'s Play! X goes first.'
-
     $scope.playerMove = function(rowIndex, colIndex) {
 
-        if (turns == Math.pow($scope.board.size, 2)) {
+        if ($scope.winner || $scope.draw) {
+            $scope.gameMessage = $scope.gameMessage + '!';
             return;
         }
+
         if ($scope.board.board[rowIndex][colIndex] == '') {
-            if (turns % 2 == 0) {
+            if ($scope.turns % 2 == 0) {
                 $scope.board.board[rowIndex][colIndex] = 'X';
-                turns += 1;
-                getWinner();
+                $scope.gameMessage = 'O goes next.';
             } else {
                 $scope.board.board[rowIndex][colIndex] = 'O';
-                turns += 1;
-                getWinner();
+                $scope.gameMessage = 'X goes next.';
+
+            }
+            $scope.turns += 1;
+            var winner = getWinner();
+            if (winner) {
+                $scope.winner = winner;
+                $scope.gameMessage = $scope.winner + ' wins!';
+                return;
+            }
+            if (!winner && $scope.turns == Math.pow($scope.board.size, 2)) {
+                $scope.draw = true;
+                $scope.gameMessage = 'It\'s a draw!';
             }
         }
     }
@@ -47,18 +59,18 @@ app.controller('BoardCtrl', ['$scope', function($scope) {
         for (var i = 0; i < $scope.board.board.length; i++) {
             var rowWinner = checkRow(i);
             if (rowWinner) {
-                console.log('row ' + rowWinner);
+                return rowWinner;
             }
 
             var colWinner = checkCol(i);
             if (colWinner) {
-                console.log('col ' + colWinner);
+                return colWinner;
             }
         }
 
         var diagWinner = checkLeftDiag() || checkRightDiag();
         if (diagWinner) {
-            console.log('diag ' + diagWinner);
+            return diagWinner;
         }
     }
 
