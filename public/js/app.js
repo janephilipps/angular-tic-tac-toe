@@ -88,8 +88,6 @@ app.controller('BoardCtrl', ['$scope', function($scope) {
         return $scope.board.board[0][0];
     }
 
-    // 0,2 1,1 2,0
-
     var checkRightDiag = function() {
         for (var i = 0; i < $scope.board.board.length - 1; i++) {
             if ($scope.board.board[i][$scope.board.board.length - 1] == '') {
