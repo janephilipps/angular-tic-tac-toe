@@ -2,7 +2,7 @@ var app = angular.module('ticTacToeApp', []);
 
 app.controller('HomeCtrl', ['$scope', function($scope) {
 
-    $scope.boards = 0;
+    $scope.boards = 1;
 
     $scope.getBoardNumber = function(boards) {
         return new Array(boards);
