@@ -1,0 +1,23 @@
+{
+  "name": "angular_tic_tac_toe",
+  "version": "1.0.0",
+  "description": "By [Jane Philipps](mailto:jane.philipps@gmail.com)",
+  "main": "index.js",
+  "dependencies": {
+    "webpack": "^1.12.14"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/janephilipps/angular_tic_tac_toe.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/janephilipps/angular_tic_tac_toe/issues"
+  },
+  "homepage": "https://github.com/janephilipps/angular_tic_tac_toe"
+}
