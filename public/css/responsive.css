@@ -1,0 +1,9 @@
+/* Smartphones (portrait and landscape) ----------- */
+@media all and (min-device-width : 320px) and (max-device-width : 480px) {
+    .square {
+        width: 25px;
+        height: 25px;
+        font-size: 1em;
+        border: .025em solid black;
+    }
+}
