@@ -1,3 +1,5 @@
+var HtmlWebpackPlugin = require('html-webpack-plugin');
+
 module.exports = {
     // Entry point file
     entry: './public',
@@ -21,7 +23,14 @@ module.exports = {
 
         ]
     },
+    // Define dev server base
     devServer: {
-        contentBase: './public'
-    }
+        contentBase: './builds'
+    },
+    plugins: [
+        new HtmlWebpackPlugin({
+            template: './public/index.html',
+            inject: 'body'
+        })
+    ]
 };
