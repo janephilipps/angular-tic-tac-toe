@@ -4,6 +4,7 @@
   "description": "By [Jane Philipps](mailto:jane.philipps@gmail.com)",
   "main": "index.js",
   "dependencies": {
+    "angular": "^1.5.0",
     "webpack": "^1.12.14"
   },
   "devDependencies": {
