@@ -1,5 +1,18 @@
 var app = angular.module('ticTacToeApp', []);
 
+app.controller('HomeCtrl', ['$scope', function($scope) {
+
+    $scope.boards = 0;
+
+    $scope.getBoardNumber = function(boards) {
+        return new Array(boards);
+    }
+
+    $scope.addBoard = function() {
+        $scope.boards += 1;
+    };
+}]);
+
 app.controller('BoardCtrl', ['$scope', function($scope) {
 
     $scope.board = {
@@ -20,7 +33,7 @@ app.controller('BoardCtrl', ['$scope', function($scope) {
                 row.push('');
             }
         }
-    }
+    };
 
     $scope.resetBoard();
 
@@ -52,7 +65,7 @@ app.controller('BoardCtrl', ['$scope', function($scope) {
                 $scope.gameMessage = 'It\'s a draw!';
             }
         }
-    }
+    };
 
     var getWinner = function() {
 
@@ -72,7 +85,7 @@ app.controller('BoardCtrl', ['$scope', function($scope) {
         if (diagWinner) {
             return diagWinner;
         }
-    }
+    };
 
     var checkRow = function(rowIndex) {
 
@@ -85,7 +98,7 @@ app.controller('BoardCtrl', ['$scope', function($scope) {
             }
         }
         return $scope.board.board[rowIndex][i];
-    }
+    };
 
     var checkCol = function(colIndex) {
         for (var i = 0; i < $scope.board.board[colIndex].length - 1; i++) {
@@ -97,7 +110,7 @@ app.controller('BoardCtrl', ['$scope', function($scope) {
             }
         }
         return $scope.board.board[i][colIndex];
-    }
+    };
 
     var checkLeftDiag = function () {
         for (var i = 0; i < $scope.board.board.length - 1; i++) {
@@ -109,7 +122,7 @@ app.controller('BoardCtrl', ['$scope', function($scope) {
             }
         }
         return $scope.board.board[0][0];
-    }
+    };
 
     var checkRightDiag = function() {
         for (var i = 0; i < $scope.board.board.length - 1; i++) {
@@ -121,7 +134,7 @@ app.controller('BoardCtrl', ['$scope', function($scope) {
             }
         }
         return $scope.board.board[0][$scope.board.board.length - 1];
-    }
+    };
 
 }]);
 

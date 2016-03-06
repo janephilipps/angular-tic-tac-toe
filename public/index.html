@@ -10,6 +10,16 @@
         <script src="../js/app.js"></script>
     </head>
     <body ng-app="ticTacToeApp">
-        <div app-board></div>
+        <div ng-controller="HomeCtrl">
+            <div class="title">
+                Tic Tac Toe
+            </div>
+            <button class="add-board" ng-click="addBoard()">
+                Add board
+            </button>
+            <div ng-repeat="b in getBoardNumber(boards) track by $index">
+                <div app-board></div>
+            </div>
+        </div>
     </body>
 </html>

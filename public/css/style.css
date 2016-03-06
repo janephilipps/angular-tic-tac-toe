@@ -8,7 +8,12 @@ body {
     padding-bottom: 20px;
 }
 
-.reset {
+.add-board {
+    margin-bottom: 40px;
+}
+
+.reset,
+.add-board {
     background-color: #fff;
     border: 2px solid black;
     font-size: 1.25em;
