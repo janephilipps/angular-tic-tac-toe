@@ -69,11 +69,16 @@ form {
     width: 90px;
     height: 90px;
     display: inline-block;
+    display: -moz-inline-stack;
     text-align: center;
     line-height: 1.75em;
     font-size: 3em;
-    border: .125em solid black;
+    border-top: .15em solid black;
+    border-bottom: .15em solid black;
+    border-left: .125em solid black;
+    border-right: .125em solid black;
     overflow: hidden;
+    vertical-align: top;
 }
 
 .row .square:first-child {
