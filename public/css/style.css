@@ -29,6 +29,11 @@ form {
 
 .board-size {
     width: 40px;
+    font-family: Futura, sans-serif;
+    font-size: 1em;
+    border: 2px dotted black;
+    padding: 5px;
+    text-align: center;
 }
 
 .reset {
