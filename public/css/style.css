@@ -130,22 +130,22 @@ form {
     color: magenta;
 }
 
-.X.winner {
-    -ms-transform: rotate(360deg); /* IE 9 */
-    -webkit-transform: rotate(360deg); /* Chrome, Safari, Opera */
-    transform: rotate(360deg);
+.X.winner,
+.O.winner {
     transition-property: transform;
     transition-duration: 2s;
     transition-timing-function: ease;
     transition-delay: 0s;
 }
 
+.X.winner {
+    -ms-transform: rotate(360deg); /* IE 9 */
+    -webkit-transform: rotate(360deg); /* Chrome, Safari, Opera */
+    transform: rotate(360deg);
+}
+
 .O.winner {
     -ms-transform: rotateY(360deg); /* IE 9 */
     -webkit-transform: rotateY(360deg); /* Chrome, Safari, Opera */
     transform: rotateY(360deg);
-    transition-property: transform;
-    transition-duration: 2s;
-    transition-timing-function: ease;
-    transition-delay: 0s;
 }
