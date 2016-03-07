@@ -9,6 +9,6 @@
 </div>
 <div class="board">
     <div ng-repeat="row in board.board track by $index" class="row">
-        <div ng-repeat="square in row track by $index" ng-click="playerMove($parent.$index, $index)" class="square">{{ square }}</div>
+        <div ng-repeat="square in row track by $index" ng-click="playerMove($parent.$index, $index)" class="square" ng-class="square">{{square}}</div>
     </div>
 </div>

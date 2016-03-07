@@ -101,3 +101,11 @@ form {
 .row:last-child .square:last-child {
     border-right: none;
 }
+
+.X {
+    color: cyan;
+}
+
+.O {
+    color: yellow;
+}

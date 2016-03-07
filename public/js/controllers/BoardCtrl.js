@@ -36,7 +36,6 @@ angular.module('BoardCtrl', []).controller('BoardController', ['$scope', functio
             } else {
                 $scope.board.board[rowIndex][colIndex] = 'O';
                 $scope.gameMessage = 'X goes next.';
-
             }
             $scope.turns += 1;
             var winner = getWinner();
