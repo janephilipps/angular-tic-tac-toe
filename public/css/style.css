@@ -10,7 +10,7 @@ body {
 
 .title {
     font-size: 2em;
-    padding-bottom: 20px;
+    padding: 20px 0;
 }
 
 .board-container {
@@ -41,6 +41,12 @@ form {
     border: 2px solid black;
     font-size: 1.25em;
     font-family: Futura, sans-serif;
+    cursor: pointer;
+}
+
+.reset:hover,
+.add-board:hover {
+    background-color: magenta;
 }
 
 .game-message {
