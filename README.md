@@ -44,8 +44,3 @@ I added a `Board rows & columns` input so the user can change the size of the bo
 #### Write error handling and/or tests
 
 I used Karma and Jasmine to write unit tests for the board. There are 10 tests and all are passing. I handle basic errors like clicking on a square after it has already been assigned and clicking on the board after a winner has been declared. (Note the easter egg that happens in this case.)
-
-
-
-
-
