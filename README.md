@@ -35,36 +35,7 @@ I added a `New Game` button which allows the user to reset the board at any time
 
 #### Use module loaders for dependency management
 
-I haven't previously used module loaders, so after doing research on Browserify and Webpack, I decided to use Webpack. Though not as important for an app this small, it saves having to load all stylesheets and scripts in the `index.html` file by bundling them and sending them in chunks. Here is the output from running Webpack:
-
-```
-http://localhost:8080/webpack-dev-server/
-webpack result is served from /
-content is served from ./builds
-Hash: ed058ac319626ce79317
-Version: webpack 1.12.14
-Time: 1240ms
-     Asset       Size  Chunks             Chunk Names
- bundle.js    1.18 MB       0  [emitted]  main
-index.html  740 bytes          [emitted]
-chunk    {0} bundle.js (main) 1.15 MB [rendered]
-    [0] ./public/index.js 381 bytes {0} [built]
-    [1] ./~/angular/index.js 48 bytes {0} [built]
-    [2] ./~/angular/angular.js 1.13 MB {0} [built]
-    [3] ./public/css/responsive.css 934 bytes {0} [built]
-    [4] ./~/css-loader!./public/css/responsive.css 423 bytes {0} [built]
-    [5] ./~/css-loader/lib/css-base.js 1.51 kB {0} [built]
-    [6] ./~/style-loader/addStyles.js 7.21 kB {0} [built]
-    [7] ./public/css/style.css 919 bytes {0} [built]
-    [8] ./~/css-loader!./public/css/style.css 1.7 kB {0} [built]
-    [9] ./public/js/controllers/HomeCtrl.js 277 bytes {0} [built]
-   [10] ./public/js/controllers/BoardCtrl.js 3.78 kB {0} [built]
-   [11] ./public/views/board.html 556 bytes {0} [built]
-Child html-webpack-plugin for "index.html":
-    chunk    {0} index.html 773 bytes [rendered]
-        [0] ./~/html-webpack-plugin/lib/loader.js!./public/index.html 773 bytes {0} [built]
-webpack: bundle is now VALID.
-```
+I haven't previously used module loaders, so after doing research on Browserify and Webpack, I decided to use Webpack. Though not as important for an app this small, it saves having to load all stylesheets and scripts in the `index.html` file by bundling them and sending them in chunks.
 
 #### Support any NxN board
 
