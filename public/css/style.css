@@ -2,6 +2,7 @@
   width: device-width;
 }
 
+/* Only use vertical-align in FF */
 @-moz-document url-prefix() {
     .square {
         vertical-align: top;

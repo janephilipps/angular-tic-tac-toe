@@ -1,3 +1,4 @@
+// Define BoardCtrl for individual gameplay
 angular.module('BoardCtrl', []).controller('BoardController', ['$scope', function($scope) {
 
     $scope.board = {
@@ -23,6 +24,7 @@ angular.module('BoardCtrl', []).controller('BoardController', ['$scope', functio
     $scope.resetBoard();
 
     $scope.playerMove = function(rowIndex, colIndex) {
+        // Prevent moves when game is over
         if ($scope.winner || $scope.draw) {
             $scope.gameMessage = $scope.gameMessage + '!';
             return;
@@ -54,6 +56,7 @@ angular.module('BoardCtrl', []).controller('BoardController', ['$scope', functio
         for (var i = 0; i < $scope.board.board.length; i++) {
             var rowWinner = checkRow(i);
             if (rowWinner) {
+                // Track winning squares for animation
                 for (var j = 0; j < $scope.board.board.length; j++) {
                     $scope.board.board[i][j].winner = 'winner';
                 }
@@ -62,6 +65,7 @@ angular.module('BoardCtrl', []).controller('BoardController', ['$scope', functio
 
             var colWinner = checkCol(i);
             if (colWinner) {
+                // Track winning squares for animation
                 for (var j = 0; j < $scope.board.board.length; j++) {
                     $scope.board.board[j][i].winner = 'winner';
                 }
@@ -72,6 +76,7 @@ angular.module('BoardCtrl', []).controller('BoardController', ['$scope', functio
         var leftDiagWinner = checkLeftDiag();
 
         if (leftDiagWinner) {
+            // Track winning squares for animation
             for (var j = 0; j < $scope.board.board.length; j++) {
                 $scope.board.board[j][j].winner = 'winner';
             }
@@ -81,6 +86,7 @@ angular.module('BoardCtrl', []).controller('BoardController', ['$scope', functio
         var rightDiagWinner = checkRightDiag();
 
         if (rightDiagWinner) {
+            // Track winning squares for animation
             for (var j = 0; j < $scope.board.board.length; j++) {
                 $scope.board.board[j][$scope.board.board.length - (j + 1)].winner = 'winner';
             }

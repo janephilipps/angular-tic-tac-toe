@@ -1,3 +1,4 @@
+// Define HomeCtrl for keeping track of number of boards
 angular.module('HomeCtrl', []).controller('HomeController', ['$scope', function($scope) {
 
     $scope.boards = 1;
