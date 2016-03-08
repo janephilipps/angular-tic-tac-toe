@@ -13,10 +13,10 @@ angular.module('BoardCtrl', []).controller('BoardController', ['$scope', functio
         $scope.board.board = [];
         for (var i = 0; i < $scope.board.size; i++) {
             var row = [];
-            $scope.board.board.push(row);
             for (var j = 0; j < $scope.board.size; j++) {
                 row.push({value: '', winner: ''});
             }
+            $scope.board.board.push(row);
         }
     };
 
@@ -69,9 +69,7 @@ angular.module('BoardCtrl', []).controller('BoardController', ['$scope', functio
             }
         }
 
-        var leftDiagWinner = checkLeftDiag(),
-            rightDiagWinner = checkRightDiag()
-        ;
+        var leftDiagWinner = checkLeftDiag();
 
         if (leftDiagWinner) {
             for (var j = 0; j < $scope.board.board.length; j++) {
@@ -79,6 +77,9 @@ angular.module('BoardCtrl', []).controller('BoardController', ['$scope', functio
             }
             return leftDiagWinner;
         }
+
+        var rightDiagWinner = checkRightDiag();
+
         if (rightDiagWinner) {
             for (var j = 0; j < $scope.board.board.length; j++) {
                 $scope.board.board[j][$scope.board.board.length - (j + 1)].winner = 'winner';

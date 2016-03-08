@@ -48,7 +48,7 @@ form {
 
 .reset,
 .add-board {
-    background-color: #fff;
+    background-color: white;
     border: 2px solid black;
     font-size: 1.25em;
     font-family: Futura, sans-serif;
@@ -71,7 +71,7 @@ form {
     margin: 0 auto;
 }
 
-/* Inline-block fix */
+/* Fix for inline-block 4px gap */
 .row {
     margin-bottom: -4px;
 }
@@ -91,11 +91,15 @@ form {
     overflow: hidden;
 }
 
-.row .square:first-child {
+.row .square:first-child,
+.row:first-child .square:first-child,
+.row:last-child .square:first-child {
     border-left: none;
 }
 
-.row .square:last-child {
+.row .square:last-child,
+.row:first-child .square:last-child,
+.row:last-child .square:last-child {
     border-right: none;
 }
 
@@ -105,22 +109,6 @@ form {
 
 .row:last-child .square {
     border-bottom: none;
-}
-
-.row:first-child .square:first-child {
-    border-left: none;
-}
-
-.row:first-child .square:last-child {
-    border-right: none;
-}
-
-.row:last-child .square:first-child {
-    border-left: none;
-}
-
-.row:last-child .square:last-child {
-    border-right: none;
 }
 
 .X {
@@ -144,13 +132,11 @@ form {
 }
 
 .X.winner {
-    -ms-transform: rotate(360deg); /* IE 9 */
-    -webkit-transform: rotate(360deg); /* Chrome, Safari, Opera */
+    -webkit-transform: rotate(360deg);
     transform: rotate(360deg);
 }
 
 .O.winner {
-    -ms-transform: rotateY(360deg); /* IE 9 */
-    -webkit-transform: rotateY(360deg); /* Chrome, Safari, Opera */
+    -webkit-transform: rotateY(360deg);
     transform: rotateY(360deg);
 }

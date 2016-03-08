@@ -14,7 +14,7 @@
             <button class="add-board" ng-click="addBoard()">
                 Add board
             </button>
-            <div ng-repeat="b in getBoardNumber(boards) track by $index" class="board-container">
+            <div ng-repeat="b in boardNumberToArray() track by $index" class="board-container">
                 <div app-board></div>
             </div>
         </div>

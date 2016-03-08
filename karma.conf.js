@@ -19,7 +19,7 @@ module.exports = function(config) {
     // list of files / patterns to load in the browser
     files: [
         './builds/bundle.js',
-        'node_modules/angular-mocks/angular-mocks.js',
+        'node_modules/angular-mocks/angular-mocks.js', // only for testing
         './tests/**/*.js'
     ],
 
@@ -73,4 +73,4 @@ module.exports = function(config) {
     // how many browser should be started simultaneous
     concurrency: Infinity
   })
-}
+};

@@ -3,6 +3,7 @@ describe('ticTacToeApp ', function() {
     var scope,
         controller
     ;
+
     beforeEach(function() {
         module('ticTacToeApp');
     });
@@ -97,7 +98,7 @@ describe('ticTacToeApp ', function() {
             scope.playerMove(1,1);
             scope.playerMove(2,1);
             scope.playerMove(2,2);
-            expect(scope.gameMessage).toEqual('It\'s a draw!');
+            expect(scope.draw).toEqual(true);
         });
 
         it('changes size', function() {
