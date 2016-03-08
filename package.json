@@ -22,7 +22,7 @@
     "webpack-dev-server": "^1.14.1"
   },
   "scripts": {
-    "test": "node_modules/.bin/webpack && karma start karma.conf.js",
+    "test": "node_modules/.bin/webpack && karma start karma.conf.js --single-run",
     "dev": "node_modules/.bin/webpack-dev-server"
   },
   "repository": {
