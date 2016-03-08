@@ -1,5 +1,11 @@
-@-ms-viewport{
+@-ms-viewport {
   width: device-width;
+}
+
+@-moz-document url-prefix() {
+    .square {
+        vertical-align: top;
+    }
 }
 
 body {
@@ -83,7 +89,6 @@ form {
     border-left: .125em solid black;
     border-right: .125em solid black;
     overflow: hidden;
-    vertical-align: top;
 }
 
 .row .square:first-child {
