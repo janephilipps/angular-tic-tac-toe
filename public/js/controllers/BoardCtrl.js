@@ -36,36 +36,31 @@ angular.module('BoardCtrl', []).controller('BoardController', ['$scope', functio
                 $scope.gameMessage = 'X goes next.';
             }
             $scope.turns += 1;
-            var winner = getWinner();
-            if (winner) {
-                $scope.winner = winner;
+            var winningArray = getWinningArray();
+            if (winningArray) {
+                for (var i = 0; i < winningArray.length; i++) {
+                    $scope.board[winningArray[i][0]][winningArray[i][1]].winner = 'winner';
+                }
+                $scope.winner = $scope.board[winningArray[0][0]][winningArray[0][1]].value;
                 $scope.gameMessage = $scope.winner + ' wins!';
                 return;
             }
-            if (!winner && $scope.turns == Math.pow($scope.size, 2)) {
+            if (!winningArray && $scope.turns == Math.pow($scope.size, 2)) {
                 $scope.draw = true;
                 $scope.gameMessage = 'It\'s a draw!';
             }
         }
     };
 
-    var getWinner = function() {
+    var getWinningArray = function() {
         for (var i = 0; i < $scope.board.length; i++) {
             var rowWinner = checkRow(i);
             if (rowWinner) {
-                // Track winning squares for animation
-                for (var j = 0; j < $scope.board.length; j++) {
-                    $scope.board[i][j].winner = 'winner';
-                }
                 return rowWinner;
             }
 
             var colWinner = checkCol(i);
             if (colWinner) {
-                // Track winning squares for animation
-                for (var j = 0; j < $scope.board.length; j++) {
-                    $scope.board[j][i].winner = 'winner';
-                }
                 return colWinner;
             }
         }
@@ -73,70 +68,82 @@ angular.module('BoardCtrl', []).controller('BoardController', ['$scope', functio
         var leftDiagWinner = checkLeftDiag();
 
         if (leftDiagWinner) {
-            // Track winning squares for animation
-            for (var j = 0; j < $scope.board.length; j++) {
-                $scope.board[j][j].winner = 'winner';
-            }
             return leftDiagWinner;
         }
 
         var rightDiagWinner = checkRightDiag();
 
         if (rightDiagWinner) {
-            // Track winning squares for animation
-            for (var j = 0; j < $scope.board.length; j++) {
-                $scope.board[j][$scope.board.length - (j + 1)].winner = 'winner';
-            }
             return rightDiagWinner;
         }
     };
 
     var checkRow = function(rowIndex) {
-        for (var i = 0; i < $scope.board[rowIndex].length - 1; i++){
+        var rowWinner = [],
+            size = $scope.board.length
+        ;
+        for (var i = 0; i < size - 1; i++) {
             if ($scope.board[rowIndex][i].value == '') {
                 return;
             }
             if ($scope.board[rowIndex][i].value != $scope.board[rowIndex][i + 1].value) {
                 return;
             }
+            rowWinner.push([rowIndex, i]);
         }
-        return $scope.board[rowIndex][i].value;
+        rowWinner.push([rowIndex, size - 1]);
+        return rowWinner;
     };
 
     var checkCol = function(colIndex) {
-        for (var i = 0; i < $scope.board[colIndex].length - 1; i++) {
+        var colWinner = [],
+            size = $scope.board.length
+        ;
+        for (var i = 0; i < size - 1; i++) {
             if ($scope.board[i][colIndex].value == '') {
                 return;
             }
             if ($scope.board[i][colIndex].value != $scope.board[i + 1][colIndex].value) {
                 return;
             }
+            colWinner.push([i, colIndex]);
         }
-        return $scope.board[i][colIndex].value;
+        colWinner.push([size - 1, colIndex]);
+        return colWinner;
     };
 
     var checkLeftDiag = function () {
-        for (var i = 0; i < $scope.board.length - 1; i++) {
+        var leftDiagWinner = [],
+            size = $scope.board.length
+        ;
+        for (var i = 0; i < size - 1; i++) {
             if ($scope.board[i][i].value == '') {
                 return;
             }
             if ($scope.board[i][i].value != $scope.board[i + 1][i + 1].value) {
                 return;
             }
+            leftDiagWinner.push([i,i]);
         }
-        return $scope.board[0][0].value;
+        leftDiagWinner.push([size - 1, size - 1]);
+        return leftDiagWinner;
     };
 
     var checkRightDiag = function() {
-        for (var i = 0; i < $scope.board.length - 1; i++) {
-            if ($scope.board[i][$scope.board.length - (i + 1)].value == '') {
+        var rightDiagWinner = [],
+            size = $scope.board.length
+        ;
+        for (var i = 0; i < size - 1; i++) {
+            if ($scope.board[i][size - (i + 1)].value == '') {
                 return;
             }
-            if ($scope.board[i][$scope.board.length - (i + 1)].value != $scope.board[i + 1][$scope.board.length - (i + 2)].value) {
+            if ($scope.board[i][size - (i + 1)].value != $scope.board[i + 1][size - (i + 2)].value) {
                 return;
             }
+            rightDiagWinner.push([i, size - (i + 1)]);
         }
-        return $scope.board[0][$scope.board.length - 1].value;
+        rightDiagWinner.push([size - 1, 0]);
+        return rightDiagWinner;
     };
 
 }]);
