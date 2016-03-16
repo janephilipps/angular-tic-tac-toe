@@ -17,14 +17,12 @@ describe('ticTacToeApp ', function() {
         }));
 
         it('has a board', function() {
-            expect(scope.board).toEqual({
-                size: 3,
-                board: [
+            expect(scope.board).toEqual([
                         [{ value: '', winner: ''}, { value: '', winner: ''}, { value: '', winner: ''}],
                         [{ value: '', winner: ''}, { value: '', winner: ''}, { value: '', winner: ''}],
                         [{ value: '', winner: ''}, { value: '', winner: ''}, { value: '', winner: ''}]
                         ]
-            });
+            );
         });
 
         it('plays a move', function() {
@@ -41,14 +39,12 @@ describe('ticTacToeApp ', function() {
         it('alternates between X and O', function() {
             scope.playerMove(0,2);
             scope.playerMove(0,1);
-            expect(scope.board).toEqual({
-                size: 3,
-                board: [
+            expect(scope.board).toEqual([
                         [{ value: '', winner: ''}, { value: 'O', winner: ''}, { value: 'X', winner: ''}],
                         [{ value: '', winner: ''}, { value: '', winner: ''}, { value: '', winner: ''}],
                         [{ value: '', winner: ''}, { value: '', winner: ''}, { value: '', winner: ''}]
                         ]
-            });
+            );
         });
 
         it('finds a winner on a row', function() {
@@ -102,9 +98,9 @@ describe('ticTacToeApp ', function() {
         });
 
         it('changes size', function() {
-            scope.board.size = 4;
+            scope.size = 4;
             scope.resetBoard();
-            expect(scope.board.board).toEqual([
+            expect(scope.board).toEqual([
                         [{ value: '', winner: ''}, { value: '', winner: ''}, { value: '', winner: ''}, { value: '', winner: ''}],
                         [{ value: '', winner: ''}, { value: '', winner: ''}, { value: '', winner: ''}, { value: '', winner: ''}],
                         [{ value: '', winner: ''}, { value: '', winner: ''}, { value: '', winner: ''}, { value: '', winner: ''}],

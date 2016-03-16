@@ -1,5 +1,5 @@
 <form>
-    Board rows & columns <input type="number" min="3" max="10" ng-model="board.size" class="board-size"></input>
+    Board rows & columns <input type="number" min="3" max="10" ng-model="size" class="board-size"></input>
 </form>
 <button class="reset" ng-click="resetBoard()">
     New Game
@@ -8,7 +8,7 @@
     {{gameMessage}}
 </div>
 <div class="board">
-    <div ng-repeat="row in board.board track by $index" class="row">
+    <div ng-repeat="row in board track by $index" class="row">
         <div ng-repeat="square in row track by $index" ng-click="playerMove($parent.$index, $index)" class="square" >
             <div ng-class="[square.value, square.winner]">
                 {{square.value}}
